@@ -10,7 +10,6 @@ import org.json4s.{DefaultFormats, Formats}
 
 class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport with JValueResult {
   import org.json4s.JsonDSL._
-  protected val applicationDescription = "The pets api"
   protected implicit val jsonFormats: Formats = DefaultFormats
 
   get("/") {

@@ -12,8 +12,12 @@ class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport with
   import org.json4s.JsonDSL._
   protected implicit val jsonFormats: Formats = DefaultFormats
 
+  before() {
+    contentType = formats("json")
+  }
+
   get("/") {
-    "Hello World"
+    ResumeData.all
   }
 
 }

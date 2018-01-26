@@ -1,6 +1,8 @@
-package com.resume.app
+package com.resume.app.repositories
 
-object ResumeData {
+import com.resume.app.models._
+
+object ResumeRepository {
 
 	var personalData = PersonalData("Luis Arce", "Software Architect")
 

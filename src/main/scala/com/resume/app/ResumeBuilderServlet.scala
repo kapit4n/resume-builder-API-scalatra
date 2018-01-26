@@ -20,13 +20,17 @@ class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport {
   }
 
   get("/resumes") {
-    ResumeRepository.all
+    ResumeRepository.resumes
   }
 
   post("/resumes") {
     val resumeStr = parse(request.body)
   	val resumeObj = resumeStr.extract[Resume]
   	resumeObj
+  }
+
+  get("/resumes/:id") {
+    ResumeRepository.getResumeById(params.getAs[Long]("id").getOrElse(0))
   }
 
 }

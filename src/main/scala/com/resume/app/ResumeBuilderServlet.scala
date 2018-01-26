@@ -12,9 +12,7 @@ import org.json4s.{DefaultFormats, Formats}
 
 import net.liftweb.json._
 
-
-class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport with JValueResult {
-  import org.json4s.JsonDSL._
+class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport {
   protected implicit val jsonFormats: Formats = DefaultFormats
 
   before() {
@@ -26,11 +24,9 @@ class ResumeBuilderServlet extends ScalatraServlet  with JacksonJsonSupport with
   }
 
   post("/resumes") {
-  	val jsonString = request.body
-  	//implicit val formats = DefaultFormats
-  	val jValue = parse(jsonString)
-  	val resume = jValue.extract[Resume]
-  	resume
+    val resumeStr = parse(request.body)
+  	val resumeObj = resumeStr.extract[Resume]
+  	resumeObj
   }
 
 }

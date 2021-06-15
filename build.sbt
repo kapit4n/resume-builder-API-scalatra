@@ -21,7 +21,11 @@ libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-jackson" % "3.6.0-M2",
   "net.liftweb" %% "lift-json" % "3.2.0-RC1",
   "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
+  "com.typesafe.slick" %% "slick" % "3.2.0",
+  "com.h2database" % "h2" % "1.4.196"
 )
+
+libraryDependencies += "com.mchange" % "c3p0" % "0.9.5.2"
 
 enablePlugins(SbtTwirl)
 enablePlugins(ScalatraPlugin)
